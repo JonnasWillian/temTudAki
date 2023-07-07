@@ -22,6 +22,10 @@ export default function Login({navigation}) {
     })
   }
 
+  const cadastrar = () => {
+    navigation.navigate("Cadastro")
+  }
+
   return (
     <View style={styles.container}>
       <Text h4>Entre no TemTudoAki</Text>
@@ -49,9 +53,11 @@ export default function Login({navigation}) {
         //right-to-bracket
           name = "arrow-circle-right"
           size = {15}
+          buttonStyle={specificStyle.button}
           color = {"white"}
         />
       } title = "Login"
+      buttonStyle={specificStyle.button}
       onPress = {() => entrar()}/>
 
     <Button
@@ -63,7 +69,17 @@ export default function Login({navigation}) {
           color = {"white"}
         />
       } title = "Cadastr-se"
-      onPress = {() => entrar()}/>
+      buttonStyle={specificStyle.button}
+      onPress = {() => cadastrar()}/>
     </View>
   );
 }
+
+const specificStyle = StyleSheet.create({
+  specificContainer: {
+    backgroundColor: "#fff"
+  },
+  button: {
+    marginTop: 10
+  }
+})

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Login from './screens/Login';
 import Principal from './screens/Principal';
+import Cadastro from './screens/Cadastro';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -12,6 +13,7 @@ function MyStack() {
     <Stack.Navigator>
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Principal" component={Principal} />
+      <Stack.Screen name="Cadastro" component={Cadastro} />
     </Stack.Navigator>
   );
 }
