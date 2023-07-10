@@ -68,7 +68,7 @@ export default function Login({navigation}) {
           size = {15}
           color = {"white"}
         />
-      } title = "Cadastr-se"
+      } title = "Cadastre-se"
       buttonStyle={specificStyle.button}
       onPress = {() => cadastrar()}/>
     </View>
