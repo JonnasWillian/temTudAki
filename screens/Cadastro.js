@@ -6,9 +6,9 @@ import { StyleSheet, View } from 'react-native';
 import { Button, CheckBox, Input, Text } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import { TextInputMask } from 'react-native-masked-text';
-//import { Button as PaperButton, Provider, Dialog, Paragraph, Portal } from 'react-native-paper';
+import { Button as PaperButton, Provider, Dialog, Paragraph, Portal } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
-//import CustomDialog from '../components/CustomDialog';
+import CustomDialog from '../components/CustomDialog';
 import usuarioService from '../services/UsuarioService';
 import styles from '../mainStyle';
 
@@ -90,11 +90,13 @@ export default function Cadastro({navigation}) {
           setLoading(false)
           const titulo = (response.data.status) ? "Sucesso" : "Erro"
           showDialog(titulo, response.data.mensagem, "SUCESSO")
+          console.log(response.data)
           //Alert.alert(titulo, response.data.mensagem)          
         })
         .catch((error) => {
           setLoading(false)
           showDialog("Erro","Houve um erro inesperado", "ERRO")
+          console.log(error)
           //Alert.alert("Erro", "Houve um erro inesperado")
         })
       }
@@ -155,8 +157,8 @@ export default function Cadastro({navigation}) {
           setErrorTelefone(null)
         }
       }
-      keyboardType="phone-pad"  
-      returnKeyType="done"    
+      keyboardType = "phone-pad"  
+      returnKeyType = "done"    
       style={styles.maskedInput}
       ref={(ref) => telefoneField = ref}
       />      
@@ -197,6 +199,10 @@ export default function Cadastro({navigation}) {
         buttonStyle={specificStyle.button}
         onPress={() => salvar()}
       />
+    }
+
+    { visibleDialog && 
+      <CustomDialog titulo={titulo} mensagem={mensagem} tipo={tipo} visible={visibleDialog} onClose={hideDialog}></CustomDialog>
     }
 
       </ScrollView>
