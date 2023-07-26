@@ -1,32 +1,13 @@
 import * as React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-function Feed() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed!</Text>
-    </View>
-  );
-}
-
-function Profile() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Profile!</Text>
-    </View>
-  );
-}
-
-function Notifications() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications!</Text>
-    </View>
-  );
-}
+import Perfil from './Perfil';
+import Busca from './Busca';
+import Produtos from './Produtos';
+import Servicos from './Servicos';
+import Cadastrar from './Cadastrar';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,28 +20,48 @@ export default function Principal() {
       }}
     >
       <Tab.Screen
-        name="Feed"
-        component={Feed}
+        name="Busca"
+        component={Busca}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Buscar',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons name="account-search" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Notifications"
-        component={Notifications}
+        name="Produtos"
+        component={Produtos}
         options={{
           tabBarLabel: 'Updates',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="shopping" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Servicos"
+        component={Servicos}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="human-greeting" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Cadastrar"
+        component={Cadastrar}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="plus-circle" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={Perfil}
         options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color, size }) => (
