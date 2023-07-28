@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+    button: {
+      width: "100%",
+      marginTop: 10
+    },
     container: {
       flex: 1,
       backgroundColor: '#fff',
