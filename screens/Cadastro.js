@@ -10,7 +10,7 @@ import { Button as PaperButton, Provider, Dialog, Paragraph, Portal } from 'reac
 import Icon from 'react-native-vector-icons/FontAwesome';
 import CustomDialog from '../components/CustomDialog';
 import usuarioService from '../services/UsuarioService';
-import styles from '../mainStyle';
+import styles from '../style/MainStyle';
 
 
 export default function Cadastro({navigation}) {
@@ -90,13 +90,11 @@ export default function Cadastro({navigation}) {
           setLoading(false)
           const titulo = (response.data.status) ? "Sucesso" : "Erro"
           showDialog(titulo, response.data.mensagem, "SUCESSO")
-          console.log(response.data)
           //Alert.alert(titulo, response.data.mensagem)          
         })
         .catch((error) => {
           setLoading(false)
           showDialog("Erro","Houve um erro inesperado", "ERRO")
-          console.log(error)
           //Alert.alert("Erro", "Houve um erro inesperado")
         })
       }
@@ -157,8 +155,8 @@ export default function Cadastro({navigation}) {
           setErrorTelefone(null)
         }
       }
-      keyboardType = "phone-pad"  
-      returnKeyType = "done"    
+      keyboardType="phone-pad"  
+      returnKeyType="done"    
       style={styles.maskedInput}
       ref={(ref) => telefoneField = ref}
       />      

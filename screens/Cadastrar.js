@@ -1,41 +1,52 @@
 import * as React from 'react';
-import { Text, View, Button } from 'react-native';
-import { Icon } from 'react-native-vector-icons/Icon';
-import styles from '../mainStyle';
+import { Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from '../style/MainStyle';
+import { Alert, StyleSheet } from 'react-native';
+export default function Cadastrar({navigation}) {
 
-export default function Cadastrar(navigation) {
+    function cadastrarServico(){
+      navigation.navigate("CadastroServico")
+    }
 
-  function cadastrarServico(){
-    navigation.navigate('CadastroServico')
+    function cadastrarProduto(){
+      navigation.navigate("CadastroProduto")
+    }
+
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>O que você quer cadastrar?</Text>
+        <Button
+            icon={
+              <Icon
+                name="child"
+                size={15}
+                color="white"
+              />
+            }
+            buttonStyle={specificStyle.button}
+            title=" Cadastrar serviço"
+            onPress={() => cadastrarServico()}
+          />
+        <Button
+            icon={
+              <Icon
+                name="shopping-bag"
+                size={15}
+                color="white"
+              />
+            }
+            title=" Cadastrar produto"
+            buttonStyle={specificStyle.button}
+            onPress={() => cadastrarProduto()}
+          />
+      </View>
+    );
   }
-  function cadastrarProduto(){
-    navigation.navigate('CadastroProduto')
-  }
 
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>O que você quer cadastrar ?</Text>
-      <Button
-      icon = {
-        <Icon
-        //right-to-bracket
-          name = "child"
-          size = {15}
-          color = {"white"}
-        />
-      } title = "Cadastrar Servico"
-      onPress = {() => cadastrarServico()}/>
-      <Button
-      icon = {
-        <Icon
-        //right-to-bracket
-          name = "shopping-bag"
-          size = {15}
-          color = {"white"}
-        />
-      } title = "Cadastrar Produto"
-      style={styles.button}
-      onPress = {() => cadastrarProduto()}/>
-    </View>
-  );
-}
+const specificStyle = StyleSheet.create({
+  button: {
+    marginTop: 10
+  }
+})

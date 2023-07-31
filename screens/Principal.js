@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import { Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 export default function Principal() {
   return (
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Busca"
       tabBarOptions={{
         activeTintColor: '#e91e63',
       }}
@@ -33,17 +33,17 @@ export default function Principal() {
         name="Produtos"
         component={Produtos}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Produtos',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="shopping" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Servicos"
+        name="Serviços"
         component={Servicos}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Serviços',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="human-greeting" color={color} size={size} />
           ),
@@ -53,17 +53,17 @@ export default function Principal() {
         name="Cadastrar"
         component={Cadastrar}
         options={{
-          tabBarLabel: 'Updates',
+          tabBarLabel: 'Cadastrar',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="plus-circle" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Profile"
+        name="Perfil"
         component={Perfil}
         options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Perfil',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),

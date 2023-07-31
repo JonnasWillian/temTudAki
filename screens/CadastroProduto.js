@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Text, View } from 'react-native';
-
-export default function Busca() {
+export default function CadastroProduto() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Tela de busca de produtos e serviços</Text>
+        <Text>Cadastro Produto</Text>
       </View>
     );
   }
